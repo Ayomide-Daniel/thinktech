@@ -273,9 +273,9 @@ body {
         grid-template-columns: repeat(2, 1fr);
         grid-column-gap: 2rem;
     }
-    .articles-div .postcard-img-div {
+    /* .articles-div .postcard-img-div {
         min-height: 300px;
-    }
+    } */
     .articles-div .postcard:last-child {
         grid-column: 1/3;
     }
@@ -283,6 +283,9 @@ body {
         width: 100%;
         height: auto;
     }
+    /* .postcard-container .postcard-img {
+        height:300px !important;
+    } */
     .postcard {
         height: 100%;
         height: -webkit-fill-available;

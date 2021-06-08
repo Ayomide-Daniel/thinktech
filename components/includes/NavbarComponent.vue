@@ -37,10 +37,6 @@
             </nuxt-link>
             <div class="navbar-links">
               <nuxt-link :to="{ name: 'index' }" exact>Home</nuxt-link>
-              <nuxt-link :to="{ name: 'about' }">Features</nuxt-link>
-              <nuxt-link :to="{ name: 'about' }">Changelog</nuxt-link>
-              <nuxt-link :to="{ name: 'about' }">Support</nuxt-link>
-              <nuxt-link :to="{ name: 'about' }">Get theme</nuxt-link>
             </div>
             <div class="navbar-tools">
               <nuxt-link :to="{ name: 'index' }">Sign in</nuxt-link>

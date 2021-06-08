@@ -17,73 +17,13 @@
           :autoplay="true"
           :infinite="true"
         >
-          <div
+          <SingleTrendComponent
             v-for="article in articles"
             :key="article.id"
             v-ripple
+            :article="article"
             class="swiper-slide featured-postcard featured"
-          >
-            <div class="postcard-container">
-              <div class="postcard-img-div">
-                <nuxt-link
-                  :to="{
-                    name: 'title',
-                    params: { title: article.meta.title_link },
-                  }"
-                >
-                  <img
-                    class="postcard-img featured-postcard-img"
-                    :src="$asset('assets/images/' + article.images[0])"
-                    :alt="'' + article.title"
-                  />
-                </nuxt-link>
-              </div>
-              <div class="postcard-text-div">
-                <div class="mb-4">
-                  <nuxt-link
-                    :to="{
-                      name: 'tag-tag',
-                      params: { tag: article.tag },
-                    }"
-                  >
-                    <h4 class="postcard-tag">{{ article.tag }}</h4>
-                  </nuxt-link>
-                </div>
-                <div class="mb-3">
-                  <nuxt-link
-                    class="post-title"
-                    :to="{
-                      name: 'title',
-                      params: { title: article.meta.title_link },
-                    }"
-                  >
-                    {{ article.title }}
-                  </nuxt-link>
-                </div>
-                <div>
-                  <div
-                    class="postcard-author-div"
-                    @click="
-                      setAuthor(
-                        article.author,
-                        `/author/${article.meta.author_link}`
-                      )
-                    "
-                  >
-                    <img
-                      :src="$asset('author_images/' + article.author.image)"
-                      :alt="article.author.name"
-                      class="postcard-author-img"
-                    />
-                    <h5 class="post-author">{{ article.author.name }}</h5>
-                  </div>
-                </div>
-                <div class="postcard-mini">
-                  {{ article.body }}
-                </div>
-              </div>
-            </div>
-          </div>
+          />
         </vue-slick-carousel>
         <!-- Add Pagination -->
         <div class="swiper-pagination swiper-pagination-white"></div>
@@ -100,6 +40,7 @@
 <script>
 import VueSlickCarousel from 'vue-slick-carousel'
 import Article from '~/assets/js/api/Article'
+import SingleTrendComponent from '~/components/articles/SingleTrendComponent'
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 // optional style for arrows & dots
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
@@ -107,6 +48,7 @@ export default {
   name: 'TrendingComponent',
   components: {
     VueSlickCarousel,
+    SingleTrendComponent,
   },
   data() {
     return {

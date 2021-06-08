@@ -16,54 +16,21 @@
           :src="imgurl[0]"
           :alt="'' + d_article.title"
         />
-        <div class="func-div">
-          <button class="edit-btn" @click="edit">
-            <i class="bi bi-pencil"></i>
-          </button>
-          <button class="del-btn" @click="confirmDel">
-            <i class="bi bi-trash"></i>
-          </button>
-        </div>
       </div>
       <div v-ripple class="postcard-text-div">
         <div class="mb-2">
-          <h3 class="postcard-header">
+          <h3 class="postcard-header" style="text-decoration: underline">
             {{ d_article.title }}
           </h3>
         </div>
         <div class="postcard-mini mb-2" v-html="content[0]"></div>
         <div class="postcard-time">
           <span
-            ><b
-              ><i class="bi bi-clock"></i>
-              {{ d_article.timeago }}
-            </b></span
+            ><b><i class="bi bi-clock"></i> {{ d_article.timeago }} </b></span
           >
           <!-- <span> &dash; </span>
           <span> 2 mins read </span> -->
         </div>
-      </div>
-    </div>
-
-    <div v-if="showDelete" class="vs-wrapper">
-      <div class="vs-container">
-        <h3>Are you sure?</h3>
-        <form @submit.prevent="affirmDelete">
-          <button v-ripple class="lhs-btn" @click="showDelete = false">
-            Keep Article
-          </button>
-          <button v-ripple class="rhs-btn">
-            <span v-if="loading"
-              ><v-progress-circular
-                indeterminate
-                color="white"
-                width="3"
-                size="20"
-              ></v-progress-circular
-            ></span>
-            <span v-else> Delete Article</span>
-          </button>
-        </form>
       </div>
     </div>
   </div>
@@ -71,14 +38,12 @@
 
 <script>
 import $ from 'jquery'
-import Article from '~/assets/js/api/Article'
 
 export default {
   name: 'SingleArticleComponent',
   props: ['article'],
   data() {
     return {
-      showDelete: false,
       loading: false,
     }
   },
@@ -121,22 +86,6 @@ export default {
         return this.$router.push(link)
       }
       return true
-    },
-    edit() {
-      return this.$router.push(
-        `/articles/new?edit=true&title=${this.d_article.meta.title_link}`
-      )
-    },
-    confirmDel() {
-      this.showDelete = true
-    },
-    affirmDelete() {
-      this.loading = true
-      return Article.delete(this.d_article.id).then(() => {
-        this.$root.$emit('articleDeleted', this.d_article.id)
-        this.showDelete = false
-        this.loading = false
-      })
     },
   },
 }
