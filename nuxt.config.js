@@ -6,7 +6,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - thinktech',
+    titleTemplate: 'ThinkTech',
     title: 'ThinkTech',
     htmlAttrs: {
       lang: 'en',
