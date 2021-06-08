@@ -30,56 +30,21 @@
       </div>
     </div>
     <div v-else class="articles-div">
-      <div
-        v-for="article in articles"
-        :key="article.id"
-        v-ripple
-        class="postcard mb-4"
-      >
-        <div class="postcard-container">
-          <router-link
-            class="postcard-img-div"
-            :to="{ name: 'title', params: { title: article.meta.title_link } }"
-          >
-            <img
-              class="postcard-img"
-              :src="$asset('assets/images/' + article.images[0])"
-              :alt="'' + article.title"
-            />
-          </router-link>
-          <div class="postcard-text-div">
-            <div class="mb-2">
-              <router-link
-                class="postcard-header"
-                :to="{
-                  name: 'title',
-                  params: { title: article.meta.title_link },
-                }"
-              >
-                {{ article.title }}
-              </router-link>
-            </div>
-            <div class="postcard-mini mb-2">
-              {{ article.body }}
-            </div>
-            <div class="postcard-time">
-              <span>
-                {{ article.timeago }}
-              </span>
-              <span> &dash; </span>
-              <span> 2 mins read </span>
-            </div>
-          </div>
-        </div>
+      <div v-for="article in articles" :key="article.id" v-ripple>
+        <SingleArticleComponent :article="article" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import SingleArticleComponent from './SingleArticleComponent'
 import Article from '~/assets/js/api/Article'
 export default {
   name: 'ArticlesComponent',
+  components: {
+    SingleArticleComponent,
+  },
   data() {
     return {
       loading: true,
@@ -87,11 +52,6 @@ export default {
       author: {},
     }
   },
-  // watch: {
-  //   $route() {
-  //     this.loading = true
-  //   },
-  // },
   mounted() {
     this.$root.$on('setSimilarArticles', (data) => {
       this.articles = data

@@ -20,6 +20,6 @@ export default {
   },
   async getTitle(title) {
     await Csrf.getCookie()
-    return Api.get('/article/' + title)
+    return Api.get('/articles/' + title)
   },
 }
