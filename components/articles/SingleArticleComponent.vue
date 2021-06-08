@@ -26,7 +26,7 @@
         <div class="postcard-mini mb-2" v-html="content[0]"></div>
         <div class="postcard-time">
           <span
-            ><b><i class="bi bi-clock"></i> {{ d_article.timeago }} </b></span
+            ><b><i class="bi bi-clock"></i> {{ d_article.timeago }}</b></span
           >
           <!-- <span> &dash; </span>
           <span> 2 mins read </span> -->

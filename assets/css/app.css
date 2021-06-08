@@ -124,18 +124,9 @@ html {
     transition: color 300ms, background-color 300ms;
 }
 
-/* html[theme='dark-mode'] {
-    filter: invert(1) hue-rotate(180deg);
-}
-
-html[theme='dark-mode'] img {
-    filter: invert(1) hue-rotate(180deg);
-} */
-
 body {
-    /* color: var(--v-text) !important; */
-    /* background: var(--white) !important; */
     line-height: 1.5rem;
+    font-weight: 300;
 }
 #main-wrapper {
     min-height: calc(100vh - 125px);
