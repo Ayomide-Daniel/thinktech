@@ -284,7 +284,7 @@ body {
     .post-inner {
         padding: 0 120px;
     }
-    .footer-container {
+/*    .footer-container {
         grid-template-columns: repeat(3, 1fr);
     }
     .footer-links {
@@ -297,7 +297,7 @@ body {
     }
     .footer-sm {
         justify-self: flex-end;
-    }
+    }    */
     #trending-component .v-skeleton-loader__image{
         height: 350px;
     }

@@ -6,6 +6,7 @@
         <v-container id="app-container">
           <router-view></router-view
         ></v-container>
+        <FooterComponent />
       </v-main>
     </v-app>
   </div>
@@ -13,11 +14,13 @@
 <script>
 import NavbarComponent from '~/components/includes/NavbarComponent'
 import SubscribeComponent from '~/components/includes/SubscribeComponent'
+import FooterComponent from '~/components/includes/FooterComponent'
 export default {
   name: 'Default',
   components: {
     NavbarComponent,
     SubscribeComponent,
+    FooterComponent,
   },
 }
 </script>
