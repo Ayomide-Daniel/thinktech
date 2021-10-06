@@ -5,7 +5,7 @@
         <div class="footer-container">
           <div class="footer-logo">
             <img
-              :src="require('~/assets/images/logo.png')"
+              :src="require('~/assets/images/footer-logo.png')"
               class="footer-logo"
             />
           </div>
@@ -39,7 +39,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: 1px solid rgb(69, 70, 68);
+  border-top: 1px solid rgba(66, 66, 65, 0.322);
 }
 
 .footer-container {
@@ -54,12 +54,15 @@ footer {
 }
 
 .footer-logo {
-  height: 200px;
+  height: 150px;
   width: auto;
   align-items: flex-start;
-  overflow: hidden;
 }
 
+.footer-logo img {
+  overflow: hidden;
+  object-fit: contain;
+}
 .footer-links {
   display: block;
   font-size: 13px;
